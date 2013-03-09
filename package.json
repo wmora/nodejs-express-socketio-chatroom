@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-express-socketio-chat",
+  "version": "0.0.1",
+  "author": "William Mora <wilmor24@gmail.com>",
+  "description":"A simple chat application",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "socket.io": "*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmora/nodejs-express-socketio-chat.git"
+  }
+}

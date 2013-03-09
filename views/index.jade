@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Super Awesome Chat
+  div
+    span Your name:
+      input(type='text', id='name', value='Anonymous')
+    br
+    form
+      textarea(rows='3', cols='20', id='outgoingMessage')
+      input(type='button', id='send', value='Send')
+  div#messages
+
