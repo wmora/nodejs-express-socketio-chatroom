@@ -1,13 +1,17 @@
 extends layout
 
 block content
-  h1 Super Awesome Chat
+  h1 Super Awesome Microblogging
   div
-    span Your name:
-      input(type='text', id='name', value='Anonymous')
-    br
-    form
-      textarea(rows='3', cols='20', id='outgoingMessage')
-      input(type='button', id='send', value='Send')
+    div(style='display:inline-block')
+      span Your name:
+        input(type='text', value='Anonymous')#name
+      br
+      form#messageForm
+        textarea(rows='3', cols='50', placeholder='Share something!', maxlength=200)#outgoingMessage
+        input(type='button', value='Share', disabled=true)#send
+    div(style='display:inline-block; vertical-align:top;')#participants
+     b Participants
+     br
   div#messages
 
