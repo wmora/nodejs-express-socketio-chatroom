@@ -2,7 +2,8 @@ var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
-  , _ = require('underscore');
+  , _ = require('underscore')
+  , participants = [];
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -22,9 +23,9 @@ app.post('/message', function(request, response) {
     return response.json(400, {error: "Message is empty"});
   }
 
-  var sender = request.body.sender;
+  var name = request.body.name;
 
-  io.sockets.emit('incomingMessage', {message: message, sender: sender});
+  io.sockets.emit('incomingMessage', {message: message, name: name});
   response.send(200);
 
 });
@@ -32,15 +33,18 @@ app.post('/message', function(request, response) {
 io.on('connection', function(socket){
 
   socket.on('disconnect', function() {
+    participants = _.without(participants,_.findWhere(participants, {id: socket.id}));
     io.sockets.emit('userDisconnected', {id: socket.id, sender:'system'});
   });
 
   socket.on('newUser', function(data) {
-    io.sockets.emit('newConnection', {id: data.id, sender: data.name});
+    participants.push({id: data.id, name: data.name});
+    io.sockets.emit('newConnection', {participants: participants});
   });
 
   socket.on('nameChange', function(data) {
-    io.sockets.emit('nameChanged', {id: data.id, sender: data.sender});
+    _.findWhere(participants, {id: socket.id}).name = data.name;
+    io.sockets.emit('nameChanged', {id: data.id, name: data.name});
   });
 
 });

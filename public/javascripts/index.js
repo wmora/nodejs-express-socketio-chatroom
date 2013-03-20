@@ -19,17 +19,22 @@ function init() {
   });
 
   socket.on('nameChanged', function (data) {
-    $('#' + data.id).text(data.sender + ' ' + (data.id === sessionId ? '(You)' : ''));
+    $('#' + data.id).text(data.name + ' ' + (data.id === sessionId ? '(You)' : ''));
   });
 
   socket.on('newConnection', function (data) {
-    $('#participants').append('<span id="' + data.id + '">' + data.sender + ' ' + (data.id === sessionId ? '(You)' : '') + '<br /></span>');
+    $('#participants').html('');
+    var participants = data.participants;
+    for (var i = 0; i < participants.length; i++) {
+      $('#participants').append('<span id="' + participants[i].id + '">' +
+        participants[i].name + ' ' + (participants[i].id === sessionId ? '(You)' : '') + '<br /></span>');
+    }
   });
 
   socket.on('incomingMessage', function (data) {
     var message = data.message;
-    var sender = data.sender;
-    $('#messages').prepend('<b>' + sender + '</b><br />' + message + '<hr />');
+    var name = data.name;
+    $('#messages').prepend('<b>' + name + '</b><br />' + message + '<hr />');
   });
 
   socket.on('error', function (reason) {
@@ -38,12 +43,12 @@ function init() {
 
   function sendMessage() {
     var outgoingMessage = $('#outgoingMessage').val();
-    var sender = $('#name').val();
+    var name = $('#name').val();
     $.ajax({
       url: serverBaseUrl + '/message',
       type: 'POST',
       dataType: 'json',
-      data: {message: outgoingMessage, sender: sender}
+      data: {message: outgoingMessage, name: name}
     });
   }
 
@@ -66,7 +71,7 @@ function init() {
 
   function nameFocusOut() {
     var name = $('#name').val();
-    socket.emit('nameChange', {id: sessionId, sender: name});
+    socket.emit('nameChange', {id: sessionId, name: name});
   }
 
   $('#outgoingMessage').on('keydown', outgoingMessageKeyDown);
