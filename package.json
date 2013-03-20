@@ -1,8 +1,8 @@
 {
-  "name": "nodejs-express-socketio-chat",
+  "name": "nodejs-express-socketio-chatroom",
   "version": "0.0.1",
   "author": "William Mora <wilmor24@gmail.com>",
-  "description":"A simple chat application",
+  "description":"A simple chatroom",
   "scripts": {
     "start": "node app"
   },
@@ -15,6 +15,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wmora/nodejs-express-socketio-chat.git"
+    "url": "https://github.com/wmora/nodejs-express-socketio-chatroom.git"
   }
 }
