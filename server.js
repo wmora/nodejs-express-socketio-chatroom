@@ -31,6 +31,10 @@ app.post('/message', function(request, response) {
 
 });
 
+io.configure(function(){
+  io.set("transports", ["websocket"]);
+});
+
 io.on('connection', function(socket){
 
   socket.on('disconnect', function() {
