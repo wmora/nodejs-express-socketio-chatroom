@@ -1,5 +1,5 @@
 function init() {
-  var serverBaseUrl = 'http://chatroom-williammora.rhcloud.com:8080';
+  var serverBaseUrl = document.domain;
   var socket = io.connect(serverBaseUrl);
   var sessionId = '';
 
