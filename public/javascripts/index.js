@@ -47,7 +47,7 @@ function init() {
     var outgoingMessage = $('#outgoingMessage').val();
     var name = $('#name').val();
     $.ajax({
-      url: serverBaseUrl + '/message',
+      url:  '/message',
       type: 'POST',
       dataType: 'json',
       data: {message: outgoingMessage, name: name}
