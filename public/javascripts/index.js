@@ -1,5 +1,7 @@
 function init() {
-  var serverBaseUrl = 'http://localhost:3000';
+
+  var serverBaseUrl = document.domain;
+
   var socket = io.connect(serverBaseUrl);
   var sessionId = '';
 
