@@ -5,7 +5,7 @@ var express = require('express')
   , _ = require('underscore')
   , participants = [];
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser());
