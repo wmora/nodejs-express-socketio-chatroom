@@ -5,11 +5,12 @@ var express = require('express')
   , _ = require('underscore')
   , participants = [];
 
-app.set('ipaddr', process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1");
-app.set('port', process.env.OPENSHIFT_INTERNAL_PORT || 8080);
+app.set('ipaddr', process.env.INTERNAL_IP || "127.0.0.1");
+app.set('port', process.env.INTERNAL_PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser());
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.static('public', __dirname + 'public'));
 
 app.get('/', function(request, response) {
