@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Super Awesome Chatroom
+  div
+    div(style='display:inline-block')
+      span Your name:
+        input(type='text', value='Anonymous')#name
+      br
+      form#messageForm
+        textarea(rows='3', cols='50', placeholder='Share something!', maxlength=200)#outgoingMessage
+        input(type='button', value='Share', disabled=true)#send
+    div(style='display:inline-block; vertical-align:top;')#participants
+     b Participants
+     br
+  div#messages
+

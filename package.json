@@ -1,34 +1,35 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "name": "nodejs-express-socketio-chatroom",
+  "version": "0.0.1",
+  "description": "A simple chatroom",
   "keywords": [
-    "OpenShift",
+    "express",
     "Node.js",
-    "application",
-    "openshift"
+    "socket.io",
+    "chatroom"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://openshift.redhat.com/"
+    "name": "William Mora",
+    "email": "william.r.mora@gmail.com",
+    "url":  "http://www.williammora.com/"
   },
-  "homepage": "http://openshift.redhat.com/",
+  "homepage": "http://www.williammora.com/",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/openshift/origin-server"
+    "url": "https://github.com/wmora/nodejs-express-socketio-chatroom.git"
   },
-
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
-
   "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "socket.io": "*",
+    "underscore": "*"
   },
   "devDependencies": {},
   "bundleDependencies": [],
-
-  "private": true,
-  "main": "server.js"
+  "license": "MIT",
+  "main": "app.js"
 }
