@@ -21,7 +21,7 @@ function init() {
   });
 
   socket.on('nameChanged', function (data) {
-    $('#' + data.id).text(data.name + ' ' + (data.id === sessionId ? '(You)' : ''));
+    $('#' + data.id).html(data.name + ' ' + (data.id === sessionId ? '(You)' : '') + '<br />');
   });
 
   socket.on('newConnection', function (data) {
