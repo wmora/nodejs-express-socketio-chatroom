@@ -31,5 +31,5 @@
   "devDependencies": {},
   "bundleDependencies": [],
   "license": "MIT",
-  "main": "server.js"
+  "main": "app.js"
 }
