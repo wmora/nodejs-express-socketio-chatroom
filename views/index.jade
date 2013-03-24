@@ -1,21 +1,24 @@
-extends layout
-
-block head
-  title Super Awesome Chatroom
-
-block content
-  h1 Super Awesome Chatroom
-  div
-    div(style='display:inline-block')
-      span Your name:
-        input(type='text', value='Anonymous')#name
-      br
-      form#messageForm
-        textarea(rows='3', cols='50', placeholder='Share something!', maxlength=200)#outgoingMessage
-        input(type='button', value='Share', disabled=true)#send
-    div(style='display:inline-block; vertical-align:top;')
-     b Participants
-     br
-     div#participants
-  div#messages
-
+doctype 5
+html
+  head
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/js/socket.io.min.js')
+    script(src='/js/jquery-1.9.1.min.js')
+    script(src='/js/index.js')
+    title Super Awesome Chatroom
+  body
+    h1 Super Awesome Chatroom
+    div
+      div.inlineBlock
+        span Your name:
+          input(type="text", value="Anonymous")#name
+        br
+        form#messageForm
+          textarea(rows="4", cols="50", placeholder="Share something!", maxlength=200)#outgoingMessage
+          input(type="button", value="Share", disabled=true)#send
+      div.inlineBlock.topAligned
+        b Participants
+        br
+        div#participants
+    div#messages

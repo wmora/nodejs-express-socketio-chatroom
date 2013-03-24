@@ -1,0 +1,17 @@
+body {
+    padding: 3em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
+
+textarea {
+    resize: none;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.topAligned {
+    vertical-align: top;
+}

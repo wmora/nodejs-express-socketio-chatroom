@@ -1,11 +1,12 @@
 {
   "name": "nodejs-express-socketio-chatroom",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple chatroom",
   "keywords": [
     "express",
     "Node.js",
     "socket.io",
+    "underscore",
     "chatroom"
   ],
   "author": {
