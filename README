@@ -1,3 +1,3 @@
 A simple chatroom built in Node.js using Express + Socket.IO.
 
-The tutorial is <a href="http://www.williammora.com/2013/03/nodejs-tutorial-building-chatroom-with.html" target="_blank">here</a>
+The tutorial is at http://www.williammora.com/2013/03/nodejs-tutorial-building-chatroom-with.html
