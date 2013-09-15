@@ -60,14 +60,6 @@ function init() {
   });
 
   /*
-   We'll get a "newConnection" event when there's a new user. We'll apply
-   the same logic as the "userDisconnected" event
-   */
-  socket.on('newConnection', function (data) {
-    updateParticipants(data.participants);
-  });
-
-  /*
    When receiving a new chat message with the "incomingMessage" event,
    we'll prepend it to the messages section
    */
