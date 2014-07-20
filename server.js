@@ -3,6 +3,7 @@
 
  - Express
  - Http (to run Express)
+ - Body parser (to parse JSON requests)
  - Underscore (because it's cool)
  - Socket.IO
 
@@ -16,6 +17,7 @@
 var express = require("express")
   , app = express()
   , http = require("http").createServer(app)
+  , bodyParser = require("body-parser")
   , io = require("socket.io").listen(http)
   , _ = require("underscore");
 
@@ -27,7 +29,7 @@ var express = require("express")
  name: "participantName"
  }
  */
-var participants = []
+var participants = [];
 
 /* Server config */
 
@@ -46,8 +48,8 @@ app.set("view engine", "jade");
 //Specify where the static content is
 app.use(express.static("public", __dirname + "/public"));
 
-//Tells server to support JSON, urlencoded, and multipart requests
-app.use(express.bodyParser());
+//Tells server to support JSON requests
+app.use(bodyParser.json());
 
 /* Server routing */
 
